@@ -1,10 +1,26 @@
+import { Fragment } from "react";
+
+/**
+ * Normalizes all css for maximum browser compatibility
+ */
+import CssBaseLine from "@material-ui/core/CssBaseline";
+
+/**
+ * Imports components
+ */
+import { Providers } from "./components/Providers";
+import { Navigation } from "./components/Navigation";
+
 /**
  * Displays the component
  */
 export const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">react-material-cli-docs</header>
-    </div>
+    <Fragment>
+      <CssBaseLine />
+      <Providers>
+        <Navigation appName="react-material-cli" />
+      </Providers>
+    </Fragment>
   );
 };
