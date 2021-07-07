@@ -47,7 +47,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = (props) => {
    */
   const [activeTheme, setActiveTheme] = useLocalStorage<ThemeType>(
     "activeTheme",
-    "dark"
+    "light"
   );
 
   /**

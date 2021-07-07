@@ -1,7 +1,7 @@
 /**
  * Imports components
  */
-import { ThemeProvider } from "../../hooks";
+import { LanguageProvider, ThemeProvider } from "../../hooks";
 
 /**
  * Displays the component
@@ -9,5 +9,9 @@ import { ThemeProvider } from "../../hooks";
 export const Providers: React.FC = (props) => {
   const { children } = props;
 
-  return <ThemeProvider>{children}</ThemeProvider>;
+  return (
+    <LanguageProvider>
+      <ThemeProvider>{children}</ThemeProvider>
+    </LanguageProvider>
+  );
 };

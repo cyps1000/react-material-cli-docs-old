@@ -2,7 +2,7 @@
  *  Material UI Imports
  * @see https://material-ui.com/styles/basics/
  */
-import { makeStyles, Theme, alpha } from "@material-ui/core/styles";
+import { makeStyles, Theme } from "@material-ui/core/styles";
 
 /**
  * Styles the component
@@ -19,11 +19,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexGrow: 1,
     letterSpacing: "0.06rem"
   },
-  githubButton: {
-    marginLeft: "0.4rem",
-    color: theme.palette.secondary.main,
-    "&:hover": {
-      color: alpha(theme.palette.secondary.main, 0.7)
+  languageSelector: {
+    "& svg:first-child": {
+      marginRight: "0.4rem"
     }
   }
 }));

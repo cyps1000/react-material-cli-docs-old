@@ -2,11 +2,11 @@
  * Imports Material UI components
  */
 import {
+  Box,
   AppBar,
   Toolbar,
   Typography,
   Button,
-  Link,
   Tooltip,
   IconButton
 } from "@material-ui/core/";
@@ -15,14 +15,21 @@ import {
  * Imports Material UI icons
  */
 import MenuIcon from "@material-ui/icons/Menu";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import Brightness7OutlinedIcon from "@material-ui/icons/Brightness7Outlined";
-import Brightness4OutlinedIcon from "@material-ui/icons/Brightness4Outlined";
+import TranslateOutlinedIcon from "@material-ui/icons/TranslateOutlined";
+import ArrowDropDownOutlinedIcon from "@material-ui/icons/ArrowDropDownOutlined";
+
+/**
+ * Imports Components
+ */
+import { GitHubRepoIcon } from "../GitHubRepoIcon";
+import { ToggleTheme } from "../ToggleTheme";
+import { Searchbar } from "../Searchbar";
 
 /**
  * Imports hooks
  */
-import { useTheme } from "../../hooks";
+import { useTranslation } from "react-i18next";
+import { useLanguage } from "../../hooks";
 
 /**
  * Imports the component styles
@@ -41,25 +48,25 @@ export interface NavigationProps {
  */
 export const Navigation: React.FC<NavigationProps> = (props) => {
   const { appName } = props;
+
   /**
    * Gets the component styles
    */
   const classes = useStyles();
 
   /**
-   * Inits the theme hook
+   * Gets the translator
    */
-  const { activeTheme, changeTheme } = useTheme();
+  const { t } = useTranslation();
 
   /**
-   * Handles toggling the light / dark theme
+   * Inits the language hook
    */
-  const toggleTheme = () => {
-    changeTheme(activeTheme === "dark" ? "light" : "dark");
-  };
+  const { activeLanguage } = useLanguage();
+  console.log(activeLanguage);
 
   return (
-    <div className={classes.Navigation}>
+    <Box className={classes.Navigation}>
       <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -74,35 +81,21 @@ export const Navigation: React.FC<NavigationProps> = (props) => {
             {appName}
           </Typography>
           <Tooltip
-            title="Toggle light/dark theme"
-            aria-label="theme"
+            title="Change language"
+            aria-label="language"
             placement="bottom"
           >
-            <IconButton
-              aria-label="theme"
-              color="inherit"
-              onClick={toggleTheme}
-            >
-              {activeTheme === "light" ? (
-                <Brightness4OutlinedIcon />
-              ) : (
-                <Brightness7OutlinedIcon />
-              )}
-            </IconButton>
+            <Button color="secondary" className={classes.languageSelector}>
+              <TranslateOutlinedIcon />
+              {t(`${activeLanguage}Label`)}
+              <ArrowDropDownOutlinedIcon />
+            </Button>
           </Tooltip>
-          <Tooltip
-            title="GitHub Repository"
-            aria-label="github"
-            placement="bottom"
-          >
-            <Link href="https://github.com/EricPuskas/react-material-cli">
-              <IconButton aria-label="github" className={classes.githubButton}>
-                <GitHubIcon />
-              </IconButton>
-            </Link>
-          </Tooltip>
+          <ToggleTheme />
+          <GitHubRepoIcon />
+          <Searchbar />
         </Toolbar>
       </AppBar>
-    </div>
+    </Box>
   );
 };
