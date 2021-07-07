@@ -9,6 +9,11 @@ import { Box, InputBase } from "@material-ui/core/";
 import SearchIcon from "@material-ui/icons/Search";
 
 /**
+ * Imports hooks
+ */
+import { useTranslation } from "react-i18next";
+
+/**
  * Imports the component styles
  */
 import { useStyles } from "./Searchbar.styles";
@@ -22,13 +27,18 @@ export const Searchbar: React.FC = () => {
    */
   const classes = useStyles();
 
+  /**
+   * Gets the translator
+   */
+  const { t } = useTranslation();
+
   return (
     <Box className={classes.Searchbar}>
       <Box className={classes.searchIcon}>
         <SearchIcon />
       </Box>
       <InputBase
-        placeholder="Search…"
+        placeholder={t("search")}
         classes={{
           root: classes.inputRoot,
           input: classes.inputInput

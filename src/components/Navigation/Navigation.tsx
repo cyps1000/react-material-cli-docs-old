@@ -6,8 +6,6 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  Button,
-  Tooltip,
   IconButton
 } from "@material-ui/core/";
 
@@ -15,8 +13,6 @@ import {
  * Imports Material UI icons
  */
 import MenuIcon from "@material-ui/icons/Menu";
-import TranslateOutlinedIcon from "@material-ui/icons/TranslateOutlined";
-import ArrowDropDownOutlinedIcon from "@material-ui/icons/ArrowDropDownOutlined";
 
 /**
  * Imports Components
@@ -24,12 +20,7 @@ import ArrowDropDownOutlinedIcon from "@material-ui/icons/ArrowDropDownOutlined"
 import { GitHubRepoIcon } from "../GitHubRepoIcon";
 import { ToggleTheme } from "../ToggleTheme";
 import { Searchbar } from "../Searchbar";
-
-/**
- * Imports hooks
- */
-import { useTranslation } from "react-i18next";
-import { useLanguage } from "../../hooks";
+import { LanguageSelector } from "../LanguageSelector";
 
 /**
  * Imports the component styles
@@ -54,17 +45,6 @@ export const Navigation: React.FC<NavigationProps> = (props) => {
    */
   const classes = useStyles();
 
-  /**
-   * Gets the translator
-   */
-  const { t } = useTranslation();
-
-  /**
-   * Inits the language hook
-   */
-  const { activeLanguage } = useLanguage();
-  console.log(activeLanguage);
-
   return (
     <Box className={classes.Navigation}>
       <AppBar position="static">
@@ -80,17 +60,7 @@ export const Navigation: React.FC<NavigationProps> = (props) => {
           <Typography variant="h6" className={classes.title}>
             {appName}
           </Typography>
-          <Tooltip
-            title="Change language"
-            aria-label="language"
-            placement="bottom"
-          >
-            <Button color="secondary" className={classes.languageSelector}>
-              <TranslateOutlinedIcon />
-              {t(`${activeLanguage}Label`)}
-              <ArrowDropDownOutlinedIcon />
-            </Button>
-          </Tooltip>
+          <LanguageSelector />
           <ToggleTheme />
           <GitHubRepoIcon />
           <Searchbar />

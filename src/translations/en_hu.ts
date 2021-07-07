@@ -9,7 +9,8 @@ const en_hu: LanguageResource = {
   en_hu: "HU",
   en_enLabel: "English",
   en_roLabel: "Română",
-  en_huLabel: "Magyar"
+  en_huLabel: "Magyar",
+  search: "Search"
 };
 
 export { en_hu };
