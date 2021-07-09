@@ -47,7 +47,7 @@ export const ToggleTheme: React.FC = () => {
         aria-label="theme"
         placement="bottom"
       >
-        <IconButton aria-label="theme" color="inherit" onClick={toggleTheme}>
+        <IconButton aria-label="theme" color="secondary" onClick={toggleTheme}>
           {activeTheme === "light" ? (
             <Brightness4OutlinedIcon />
           ) : (

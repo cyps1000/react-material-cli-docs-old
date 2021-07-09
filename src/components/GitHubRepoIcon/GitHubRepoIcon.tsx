@@ -25,7 +25,10 @@ export const GitHubRepoIcon: React.FC = () => {
   return (
     <Box className={classes.GitHubRepoIcon}>
       <Tooltip title="GitHub Repository" aria-label="github" placement="bottom">
-        <Link href="https://github.com/EricPuskas/react-material-cli">
+        <Link
+          target="_blank"
+          href="https://github.com/EricPuskas/react-material-cli"
+        >
           <IconButton aria-label="github" color="secondary">
             <GitHubIcon />
           </IconButton>

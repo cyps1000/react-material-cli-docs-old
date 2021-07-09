@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontWeight: 500,
     maxWidth: 400,
     borderRadius: 4,
-    border: `1px solid ${theme.palette.common.white}`
+    border: `1px solid ${theme.palette.secondary.main}`
   },
   popper: {
     zIndex: 2000,

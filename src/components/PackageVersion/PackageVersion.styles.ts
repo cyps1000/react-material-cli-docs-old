@@ -8,20 +8,12 @@ import { makeStyles, Theme } from "@material-ui/core/styles";
  * Styles the component
  */
 const useStyles = makeStyles((theme: Theme) => ({
-  Navigation: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.primary.dark
-  },
-  menuButton: {},
-  menuItems: {
-    marginLeft: "auto",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  title: {
+  PackageVersion: {},
+  button: {
+    fontSize: "0.97rem",
+    fontWeight: 600,
     letterSpacing: "0.06rem",
-    paddingLeft: "0.4rem"
+    textTransform: "initial"
   }
 }));
 

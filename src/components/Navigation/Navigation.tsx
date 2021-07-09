@@ -6,13 +6,16 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  IconButton
+  IconButton,
+  Button,
+  Tooltip
 } from "@material-ui/core/";
 
 /**
- * Imports Material UI icons
+ * Imports Font Awesome icons
  */
-import MenuIcon from "@material-ui/icons/Menu";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faReact } from "@fortawesome/free-brands-svg-icons";
 
 /**
  * Imports Components
@@ -21,6 +24,7 @@ import { GitHubRepoIcon } from "../GitHubRepoIcon";
 import { ToggleTheme } from "../ToggleTheme";
 import { Searchbar } from "../Searchbar";
 import { LanguageSelector } from "../LanguageSelector";
+import { PackageVersion } from "../PackageVersion";
 
 /**
  * Imports the component styles
@@ -47,23 +51,36 @@ export const Navigation: React.FC<NavigationProps> = (props) => {
 
   return (
     <Box className={classes.Navigation}>
-      <AppBar position="static">
+      <AppBar position="sticky">
         <Toolbar>
           <IconButton
             edge="start"
             className={classes.menuButton}
-            color="inherit"
+            color="secondary"
             aria-label="menu"
+            disableRipple
           >
-            <MenuIcon />
+            <FontAwesomeIcon aria-label="react-logo" icon={faReact} />
+            <Typography variant="h6" className={classes.title}>
+              {appName}
+            </Typography>
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            {appName}
-          </Typography>
-          <LanguageSelector />
-          <ToggleTheme />
-          <GitHubRepoIcon />
-          <Searchbar />
+          <PackageVersion />
+          <Box className={classes.menuItems}>
+            <Tooltip
+              title="Go to documentation"
+              aria-label="documentation"
+              placement="bottom"
+            >
+              <Button aria-label="docs" color="secondary">
+                Docs
+              </Button>
+            </Tooltip>
+            <LanguageSelector />
+            <ToggleTheme />
+            <GitHubRepoIcon />
+            <Searchbar />
+          </Box>
         </Toolbar>
       </AppBar>
     </Box>
