@@ -1,4 +1,9 @@
 /**
+ * Imports common theme settings
+ */
+import { breakpoints, font, zIndex } from "./common";
+
+/**
  * Defines the palette of colors
  */
 const palette = {
@@ -7,11 +12,10 @@ const palette = {
     white: "#fff"
   },
   primary: {
-    // light: "#6e8ba9",
+    navbar: "#242526",
+    light: "#2f3032",
     main: "#242526",
-    // main: "#5881ab",
     dark: "#18191a",
-    // accent: "#3454DB",
     accent: "#13C1CC",
     contrastText: "#fff"
   },
@@ -94,47 +98,13 @@ const palette = {
 };
 
 /**
- * Defines the font families and general font properties
- */
-const font = {
-  family: "Roboto, sans-serif",
-  display: "Roboto, sans-serif",
-  weight: {
-    light: 300,
-    regular: 400,
-    medium: 500,
-    bolder: 600,
-    bold: 700
-  },
-  size: {
-    xs: "0.8em",
-    s: "0.9em",
-    m: "1em",
-    l: "1.4em",
-    xl: "2em"
-  }
-};
-
-/**
- * Defines the zIndex values used across the app
- */
-const zIndex = {
-  mobileStepper: 1000,
-  speedDial: 1050,
-  appBar: 1100,
-  drawer: 1200,
-  modal: 1300,
-  snackbar: 1400,
-  tooltip: 1500
-};
-
-/**
  * Creates the Theme
  */
 let theme = {
   palette,
   font,
-  zIndex
+  zIndex,
+  breakpoints
 };
 
 export { theme as darkTheme };

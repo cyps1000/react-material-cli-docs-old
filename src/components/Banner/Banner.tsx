@@ -10,6 +10,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faReact } from "@fortawesome/free-brands-svg-icons";
 
 /**
+ * Imports hooks
+ */
+import { useNavigation } from "../../hooks";
+
+/**
  * Imports the component styles
  */
 import { useStyles } from "./Banner.styles";
@@ -28,6 +33,16 @@ export const Banner: React.FC<BannerProps> = () => {
    */
   const classes = useStyles();
 
+  /**
+   * Gets the paths
+   */
+  const { Paths, goTo } = useNavigation();
+
+  /**
+   * Defines the routing functions
+   */
+  const goToDocs = () => goTo(Paths.DocsGetStarted);
+
   return (
     <Paper className={classes.Banner} elevation={0} square>
       <Container maxWidth="md" className={classes.container}>
@@ -44,6 +59,7 @@ export const Banner: React.FC<BannerProps> = () => {
           variant="outlined"
           color="primary"
           className={classes.button}
+          onClick={goToDocs}
         >
           Get Started
         </Button>

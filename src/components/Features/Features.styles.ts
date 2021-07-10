@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     padding: "2rem 0",
     color: theme.palette.secondary.light
   },
+  paper: {
+    backgroundColor: theme.palette.primary.dark
+  },
   title: {
     fontSize: "2.7rem",
     [theme.breakpoints.down("sm")]: {

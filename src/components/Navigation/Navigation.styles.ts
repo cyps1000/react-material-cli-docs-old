@@ -10,7 +10,7 @@ import { makeStyles, Theme } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme: Theme) => ({
   Navigation: {
     flexGrow: 1,
-    backgroundColor: theme.palette.primary.dark
+    backgroundColor: theme.palette.primary.navbar
   },
   menuButton: {},
   menuItems: {

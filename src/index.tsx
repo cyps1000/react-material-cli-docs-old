@@ -6,11 +6,6 @@ import { render } from "react-dom";
 import { App } from "./App";
 
 /**
- * Imports styling
- */
-import "./index.css";
-
-/**
  * Renders the App
  */
 render(<App />, document.getElementById("root"));

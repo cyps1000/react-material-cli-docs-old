@@ -23,16 +23,20 @@ export const GetStartedSection: React.FC<GetStartedSectionProps> = (props) => {
   const classes = useStyles();
 
   return (
-    <Container maxWidth="md" className={classes.GetStartedSection}>
-      <Typography className={classes.title}>Get started in seconds</Typography>
-      <Box className={classes.featuresPreview}>
-        <Typography gutterBottom>
-          To create a component called Button, run this command:
+    <Paper className={classes.paper} elevation={0} square>
+      <Container maxWidth="md" className={classes.GetStartedSection}>
+        <Typography className={classes.title}>
+          Get started in seconds
         </Typography>
-        <Paper className={classes.paper}>
-          <code>npx react-material-cli Button</code>
-        </Paper>
-      </Box>
-    </Container>
+        <Box className={classes.featuresPreview}>
+          <Typography gutterBottom>
+            To create a component called Button, run this command:
+          </Typography>
+          <Paper className={classes.code}>
+            <code>npx react-material-cli Button</code>
+          </Paper>
+        </Box>
+      </Container>
+    </Paper>
   );
 };

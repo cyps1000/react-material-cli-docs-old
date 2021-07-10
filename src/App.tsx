@@ -8,13 +8,13 @@ import CssBaseLine from "@material-ui/core/CssBaseline";
 /**
  * Imports components
  */
-import { Body } from "./components/Body";
 import { Providers } from "./components/Providers";
-import { Navigation } from "./components/Navigation";
-import { Banner } from "./components/Banner";
-import { Features } from "./components/Features";
-import { GetStartedSection } from "./components/GetStartedSection";
-import { Footer } from "./components/Footer";
+import { Routes } from "./components/Routes";
+
+/**
+ * Imports component specific css
+ */
+import "./App.css";
 
 /**
  * Displays the component
@@ -24,13 +24,7 @@ export const App: React.FC = () => {
     <Fragment>
       <CssBaseLine />
       <Providers>
-        <Body>
-          <Navigation appName="react-material-cli" />
-          <Banner />
-          <Features />
-          <GetStartedSection />
-          <Footer />
-        </Body>
+        <Routes />
       </Providers>
     </Fragment>
   );

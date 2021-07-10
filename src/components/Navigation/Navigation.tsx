@@ -27,6 +27,11 @@ import { LanguageSelector } from "../LanguageSelector";
 import { PackageVersion } from "../PackageVersion";
 
 /**
+ * Imports hooks
+ */
+import { useNavigation } from "../../hooks";
+
+/**
  * Imports the component styles
  */
 import { useStyles } from "./Navigation.styles";
@@ -49,6 +54,17 @@ export const Navigation: React.FC<NavigationProps> = (props) => {
    */
   const classes = useStyles();
 
+  /**
+   * Gets the paths
+   */
+  const { Paths, goTo } = useNavigation();
+
+  /**
+   * Defines the routing functions
+   */
+  const goToHome = () => goTo(Paths.LandingPage);
+  const goToDocs = () => goTo(Paths.DocsGetStarted);
+
   return (
     <Box className={classes.Navigation}>
       <AppBar position="sticky">
@@ -59,6 +75,7 @@ export const Navigation: React.FC<NavigationProps> = (props) => {
             color="secondary"
             aria-label="menu"
             disableRipple
+            onClick={goToHome}
           >
             <FontAwesomeIcon aria-label="react-logo" icon={faReact} />
             <Typography variant="h6" className={classes.title}>
@@ -72,7 +89,7 @@ export const Navigation: React.FC<NavigationProps> = (props) => {
               aria-label="documentation"
               placement="bottom"
             >
-              <Button aria-label="docs" color="secondary">
+              <Button aria-label="docs" color="secondary" onClick={goToDocs}>
                 Docs
               </Button>
             </Tooltip>
