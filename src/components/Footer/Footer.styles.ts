@@ -16,7 +16,25 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    padding: "1rem"
+    flexDirection: "column",
+    padding: "2.5rem",
+    "& a": {
+      textDecoration: "none",
+      color: theme.palette.secondary.main,
+      "&:hover": {
+        textDecoration: "underline"
+      }
+    }
+  },
+  container: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+
+    textAlign: "center"
+  },
+  copyrightText: {
+    marginTop: "3rem"
   }
 }));
 
